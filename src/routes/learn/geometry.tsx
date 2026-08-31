@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteFooter, SiteHeader } from "@/components/lemu/site-chrome";
+import { FormulaCard } from "@/components/lemu/math";
 import { TopicCard } from "@/components/lemu/topic-card";
+
 import {
   AxiomGlyph,
   BoxGlyph,
