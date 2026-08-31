@@ -98,10 +98,26 @@ function Auth() {
         <p className="mt-4 font-mono text-xs uppercase tracking-widest text-signal">
           Student, 10th grade
         </p>
-        <div className="mt-12 w-64 text-blueprint">
-          <BoxGlyph />
+
+        <div className="mt-10 max-w-sm rounded-2xl border-2 border-primary-foreground/25 bg-background/95 p-5 text-ink">
+          <SolidBox className="text-ink" />
+          <div className="mt-4 grid gap-2 font-mono text-[0.8rem]">
+            <div className="flex items-center justify-between">
+              <span className="text-signal-foreground">
+                <span className="rounded bg-signal px-1.5 py-0.5">face</span>
+              </span>
+              <M>{"\\sqrt{a^{2}+b^{2}}=5"}</M>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-neon-foreground">
+                <span className="rounded bg-neon px-1.5 py-0.5">space</span>
+              </span>
+              <M>{"\\sqrt{a^{2}+b^{2}+c^{2}}=\\sqrt{34}"}</M>
+            </div>
+          </div>
         </div>
       </div>
+
     </div>
   );
 }
