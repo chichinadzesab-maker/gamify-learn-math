@@ -35,9 +35,9 @@ function project(v: V3, rx: number, ry: number) {
   const cx = Math.cos(rx), sx = Math.sin(rx);
   const y1 = y0 * cx - z1 * sx;
   const z2 = y0 * sx + z1 * cx;
-  const d = 6;
+  const d = 9;
   const k = d / (d + z2);
-  return { x: x1 * k, y: y1 * k, z: z2 };
+  return { x: x1 * k, y: -y1 * k, z: z2 };
 }
 
 /**
@@ -45,7 +45,7 @@ function project(v: V3, rx: number, ry: number) {
  * the face diagonal and the space diagonal.
  */
 export function SolidBox({ className }: { className?: string }) {
-  const [rot, setRot] = useState({ x: -0.42, y: 0.7 });
+  const [rot, setRot] = useState({ x: 0.38, y: 0.72 });
   const drag = useRef<{ x: number; y: number } | null>(null);
   const [spin, setSpin] = useState(true);
 
@@ -75,7 +75,7 @@ export function SolidBox({ className }: { className?: string }) {
     const dy = e.clientY - d.y;
     drag.current = { x: e.clientX, y: e.clientY };
     setRot((r) => ({
-      x: Math.max(-1.2, Math.min(1.2, r.x + dy * 0.008)),
+      x: Math.max(-1.2, Math.min(1.2, r.x - dy * 0.008)),
       y: r.y + dx * 0.008,
     }));
   };
