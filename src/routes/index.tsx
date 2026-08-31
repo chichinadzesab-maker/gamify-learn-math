@@ -184,6 +184,10 @@ function Steps() {
         <h2 className="max-w-lg text-3xl font-bold sm:text-4xl">
           Every topic runs the same three beats
         </h2>
+        <p className="mt-4 max-w-lg text-muted-foreground">
+          And the maths is set properly — <M>{"\\sqrt{a^{2}+b^{2}+c^{2}}"}</M> is a formula, not
+          a line of code.
+        </p>
         <div className="mt-12 grid gap-5 md:grid-cols-3">
           {steps.map((s) => (
             <div
@@ -198,6 +202,24 @@ function Steps() {
             </div>
           ))}
         </div>
+        <div className="mt-8 grid gap-5 sm:grid-cols-3">
+          <FormulaCard
+            label="Space diagonal"
+            tex="d=\sqrt{a^{2}+b^{2}+c^{2}}"
+            note="The box, unfolded into one line."
+          />
+          <FormulaCard
+            label="Pyramid volume"
+            tex="V=\tfrac{1}{3}S_{\text{base}}h"
+            note="Why a third? The explainer pours it."
+          />
+          <FormulaCard
+            label="Law of cosines"
+            tex="c^{2}=a^{2}+b^{2}-2ab\cos\gamma"
+            note="Pythagoras with the angle turned on."
+          />
+        </div>
+
       </div>
     </section>
   );
