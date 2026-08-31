@@ -51,7 +51,11 @@ function Auth() {
 
       <div className="relative flex items-center justify-center px-5 py-16">
         <div className="w-full max-w-sm">
-          <Logo />
+          <div className="flex items-center justify-between">
+            <Logo />
+            <ThemeToggle />
+          </div>
+
           <h1 className="mt-8 text-3xl font-bold">
             {mode === "login" ? "Welcome back" : "Make an account"}
           </h1>
