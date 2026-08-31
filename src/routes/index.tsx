@@ -2,6 +2,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { LemuLinkButton } from "@/components/lemu/button";
 import { SiteFooter, SiteHeader } from "@/components/lemu/site-chrome";
 import { TopicCard } from "@/components/lemu/topic-card";
+import { KnowBoard, FormulaCard, M } from "@/components/lemu/math";
+import { SolidBox } from "@/components/lemu/solid-box";
+import logoVideo from "@/assets/lemu-logo.mp4.asset.json";
 import {
   AxiomGlyph,
   BoxGlyph,
@@ -9,6 +12,7 @@ import {
   GameGlyph,
   PyramidGlyph,
 } from "@/components/lemu/glyphs";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
