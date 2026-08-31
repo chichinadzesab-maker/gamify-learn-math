@@ -248,3 +248,22 @@
   0%, 100% { transform: translateY(-6px) rotate(-1.5deg); }
   50% { transform: translateY(6px) rotate(1.5deg); }
 }
+
+/* --- Maths typesetting (KaTeX) ---------------------------------- */
+.katex {
+  font-size: 1.02em;
+  color: inherit;
+}
+.katex-display {
+  margin: 0;
+}
+.katex .mord,
+.katex .mbin,
+.katex .mrel,
+.katex .mopen,
+.katex .mclose {
+  color: inherit;
+}
+.katex .sqrt > .root {
+  color: inherit;
+}
