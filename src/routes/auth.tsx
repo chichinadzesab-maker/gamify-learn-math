@@ -2,8 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Logo } from "@/components/lemu/site-chrome";
 import { LemuButton } from "@/components/lemu/button";
-import { BoxGlyph } from "@/components/lemu/glyphs";
+import { SolidBox } from "@/components/lemu/solid-box";
+import { M } from "@/components/lemu/math";
+import { ThemeToggle } from "@/components/lemu/theme-toggle";
 import { cn } from "@/lib/utils";
+
 
 export const Route = createFileRoute("/auth")({
   head: () => ({
