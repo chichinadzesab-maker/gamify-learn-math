@@ -1,6 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { LemuLinkButton } from "./button";
+import { ThemeToggle } from "./theme-toggle";
 import logo from "@/assets/lemu-logo.jpg.asset.json";
+
 
 export function Logo({ className = "" }: { className?: string }) {
   return (
