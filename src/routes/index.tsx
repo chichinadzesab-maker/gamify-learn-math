@@ -107,35 +107,49 @@ function HeroFigure() {
         </span>
       </div>
 
-      <div className="relative grid h-64 place-items-center overflow-hidden">
+      <div className="relative overflow-hidden py-2">
         <div className="grid-paper pointer-events-none absolute inset-0" />
-        <div className="relative w-56 animate-[float_6s_ease-in-out_infinite]">
-          <BoxGlyph className="text-blueprint" />
-        </div>
+        <SolidBox className="relative text-ink" />
       </div>
 
-      <div className="mt-3 space-y-2 rounded-lg border border-border bg-chalk p-4">
-        <p className="font-mono text-[0.7rem] uppercase tracking-widest text-muted-foreground">
-          What you know
-        </p>
-        <ul className="space-y-1.5 font-mono text-sm">
-          <li className="flex justify-between">
-            <span>edge a</span>
-            <span className="text-blueprint">4 cm</span>
-          </li>
-          <li className="flex justify-between">
-            <span>diagonal d</span>
-            <span className="text-blueprint">√(a² + b² + c²)</span>
-          </li>
-          <li className="flex justify-between text-muted-foreground">
-            <span>angle to base</span>
-            <span>?</span>
-          </li>
-        </ul>
-      </div>
+      <KnowBoard
+        className="mt-3"
+        rows={[
+          { label: "a", tex: "a", value: "4\\,\\text{cm}" },
+          { label: "b", tex: "b", value: "3\\,\\text{cm}" },
+          {
+            label: "face diagonal",
+            tex: "d_{\\text{face}} = \\sqrt{a^{2}+b^{2}}",
+            value: "5\\,\\text{cm}",
+            state: "derived",
+          },
+          {
+            label: "space diagonal",
+            tex: "d = \\sqrt{a^{2}+b^{2}+c^{2}}",
+            state: "unknown",
+          },
+        ]}
+      />
     </div>
   );
 }
+
+function LogoReel() {
+  return (
+    <span className="grid size-14 shrink-0 place-items-center overflow-hidden rounded-xl border-2 border-ink bg-chalk shadow-ink-sm">
+      <video
+        src={logoVideo.url}
+        autoPlay
+        muted
+        loop
+        playsInline
+        aria-hidden
+        className="size-full scale-[1.02] object-cover"
+      />
+    </span>
+  );
+}
+
 
 const steps = [
   {
