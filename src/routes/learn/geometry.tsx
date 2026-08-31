@@ -47,6 +47,12 @@ function Geometry() {
               Two tracks. Solids first, because they are the ones textbooks flatten into
               unreadable drawings.
             </p>
+            <div className="mt-8 grid max-w-3xl gap-4 sm:grid-cols-3">
+              <FormulaCard label="Box" tex="d=\sqrt{a^{2}+b^{2}+c^{2}}" />
+              <FormulaCard label="Sphere" tex="V=\tfrac{4}{3}\pi r^{3}" />
+              <FormulaCard label="Pyramid" tex="V=\tfrac{1}{3}S h" />
+            </div>
+
           </div>
         </section>
 
