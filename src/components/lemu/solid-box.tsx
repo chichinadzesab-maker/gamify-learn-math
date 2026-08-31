@@ -84,8 +84,9 @@ export function SolidBox({ className }: { className?: string }) {
   };
 
   const S = 46;
-  const p = V.map((v) => project(v, rot.x, rot.y));
-  const pt = (i: number) => `${p[i].x * S},${p[i].y * S}`;
+  const proj = V.map((v) => project(v, rot.x, rot.y));
+  const p = (i: number) => proj[i]!;
+  const pt = (i: number) => `${p(i).x * S},${p(i).y * S}`;
 
   return (
     <div className={cn("relative select-none", className)}>
@@ -110,10 +111,10 @@ export function SolidBox({ className }: { className?: string }) {
           return (
             <line
               key={key}
-              x1={p[a].x * S}
-              y1={p[a].y * S}
-              x2={p[b].x * S}
-              y2={p[b].y * S}
+              x1={p(a).x * S}
+              y1={p(a).y * S}
+              x2={p(b).x * S}
+              y2={p(b).y * S}
               stroke="currentColor"
               strokeWidth={back ? 1.4 : 2.4}
               strokeLinecap="round"
@@ -125,20 +126,20 @@ export function SolidBox({ className }: { className?: string }) {
 
         {/* face diagonal 3 -> 1 on the bottom face */}
         <line
-          x1={p[3].x * S}
-          y1={p[3].y * S}
-          x2={p[1].x * S}
-          y2={p[1].y * S}
+          x1={p(3).x * S}
+          y1={p(3).y * S}
+          x2={p(1).x * S}
+          y2={p(1).y * S}
           className="stroke-signal"
           strokeWidth="2.6"
           strokeLinecap="round"
         />
         {/* space diagonal 3 -> 5 */}
         <line
-          x1={p[3].x * S}
-          y1={p[3].y * S}
-          x2={p[5].x * S}
-          y2={p[5].y * S}
+          x1={p(3).x * S}
+          y1={p(3).y * S}
+          x2={p(5).x * S}
+          y2={p(5).y * S}
           className="stroke-neon-strong"
           strokeWidth="2.6"
           strokeLinecap="round"
@@ -147,8 +148,8 @@ export function SolidBox({ className }: { className?: string }) {
         {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
           <circle
             key={i}
-            cx={p[i].x * S}
-            cy={p[i].y * S}
+            cx={p(i).x * S}
+            cy={p(i).y * S}
             r="3.4"
             className="fill-background stroke-current"
             strokeWidth="2"
