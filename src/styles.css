@@ -220,3 +220,8 @@
     transparent 1px 12px
   );
 }
+
+@keyframes float {
+  0%, 100% { transform: translateY(-6px) rotate(-1.5deg); }
+  50% { transform: translateY(6px) rotate(1.5deg); }
+}

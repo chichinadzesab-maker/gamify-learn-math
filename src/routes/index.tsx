@@ -109,7 +109,7 @@ function HeroFigure() {
 
       <div className="relative grid h-64 place-items-center overflow-hidden">
         <div className="grid-paper pointer-events-none absolute inset-0" />
-        <div className="relative w-56 animate-[spin_18s_linear_infinite] [transform-style:preserve-3d]">
+        <div className="relative w-56 animate-[float_6s_ease-in-out_infinite]">
           <BoxGlyph className="text-blueprint" />
         </div>
       </div>
