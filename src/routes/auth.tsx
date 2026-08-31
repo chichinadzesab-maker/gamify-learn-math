@@ -97,7 +97,7 @@ function Auth() {
         </div>
       </div>
 
-      <div className="relative hidden border-l-2 border-ink bg-ink text-primary-foreground lg:flex lg:flex-col lg:justify-center lg:px-14">
+      <div className="relative hidden border-l-2 border-ink bg-slab text-slab-foreground lg:flex lg:flex-col lg:justify-center lg:px-14">
         <blockquote className="max-w-sm text-2xl leading-snug font-display font-semibold">
           “I finally saw why the space diagonal is longer than the face diagonal. Nobody had ever
           shown me.”

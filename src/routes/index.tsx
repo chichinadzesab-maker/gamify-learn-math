@@ -278,7 +278,7 @@ function Featured() {
 
 function GameBand() {
   return (
-    <section className="border-b-2 border-ink/90 bg-ink text-primary-foreground">
+    <section className="border-b-2 border-ink/90 bg-slab text-slab-foreground">
       <div className="mx-auto grid max-w-6xl gap-8 px-5 py-16 md:grid-cols-[1.2fr_1fr] md:items-center">
         <div>
           <span className="font-mono text-xs uppercase tracking-widest text-signal">
