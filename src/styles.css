@@ -202,13 +202,21 @@
   opacity: 0.45;
 }
 
+/* Line-work shadow color: solid ink on paper, neon glow-edge after dark */
+:root {
+  --stroke-shadow: var(--ink);
+}
+.dark {
+  --stroke-shadow: oklch(0.86 0.24 150 / 0.42);
+}
+
 /* Hard-offset ink shadow: the tactile "card physics" */
 @utility shadow-ink {
-  box-shadow: 4px 4px 0 0 var(--color-ink);
+  box-shadow: 4px 4px 0 0 var(--stroke-shadow);
 }
 
 @utility shadow-ink-sm {
-  box-shadow: 2px 2px 0 0 var(--color-ink);
+  box-shadow: 2px 2px 0 0 var(--stroke-shadow);
 }
 
 @utility press {
@@ -218,14 +226,15 @@
 
   &:hover {
     transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0 0 var(--color-ink);
+    box-shadow: 6px 6px 0 0 var(--stroke-shadow);
   }
 
   &:active {
     transform: translate(2px, 2px);
-    box-shadow: 1px 1px 0 0 var(--color-ink);
+    box-shadow: 1px 1px 0 0 var(--stroke-shadow);
   }
 }
+
 
 @utility tick-rule {
   background-image: repeating-linear-gradient(
