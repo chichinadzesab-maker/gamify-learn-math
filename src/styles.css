@@ -46,6 +46,10 @@
   --color-signal-foreground: var(--signal-foreground);
   --color-chalk: var(--chalk);
   --color-grid: var(--grid);
+  --color-neon: var(--neon);
+  --color-neon-strong: var(--neon-strong);
+  --color-neon-foreground: var(--neon-foreground);
+
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
