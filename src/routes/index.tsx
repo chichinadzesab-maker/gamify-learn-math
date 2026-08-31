@@ -40,9 +40,13 @@ function Hero() {
       <div className="grid-paper pointer-events-none absolute inset-0" />
       <div className="relative mx-auto grid max-w-6xl gap-12 px-5 py-20 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:py-28">
         <div>
-          <span className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-chalk px-3 py-1 font-mono text-[0.7rem] uppercase tracking-widest shadow-ink-sm">
-            Geometry · Algebra · Puzzles
-          </span>
+          <div className="flex items-center gap-3">
+            <LogoReel />
+            <span className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-chalk px-3 py-1 font-mono text-[0.7rem] uppercase tracking-widest shadow-ink-sm">
+              Geometry · Algebra · Puzzles
+            </span>
+          </div>
+
           <h1 className="mt-6 text-5xl leading-[0.95] font-bold sm:text-6xl lg:text-7xl">
             Maths you can
             <br />
