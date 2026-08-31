@@ -2,8 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Logo } from "@/components/lemu/site-chrome";
 import { LemuButton } from "@/components/lemu/button";
-import { BoxGlyph } from "@/components/lemu/glyphs";
+import { SolidBox } from "@/components/lemu/solid-box";
+import { M } from "@/components/lemu/math";
+import { ThemeToggle } from "@/components/lemu/theme-toggle";
 import { cn } from "@/lib/utils";
+
 
 export const Route = createFileRoute("/auth")({
   head: () => ({
@@ -48,7 +51,11 @@ function Auth() {
 
       <div className="relative flex items-center justify-center px-5 py-16">
         <div className="w-full max-w-sm">
-          <Logo />
+          <div className="flex items-center justify-between">
+            <Logo />
+            <ThemeToggle />
+          </div>
+
           <h1 className="mt-8 text-3xl font-bold">
             {mode === "login" ? "Welcome back" : "Make an account"}
           </h1>
@@ -90,7 +97,7 @@ function Auth() {
         </div>
       </div>
 
-      <div className="relative hidden border-l-2 border-ink bg-ink text-primary-foreground lg:flex lg:flex-col lg:justify-center lg:px-14">
+      <div className="relative hidden border-l-2 border-ink bg-slab text-slab-foreground lg:flex lg:flex-col lg:justify-center lg:px-14">
         <blockquote className="max-w-sm text-2xl leading-snug font-display font-semibold">
           “I finally saw why the space diagonal is longer than the face diagonal. Nobody had ever
           shown me.”
@@ -98,10 +105,26 @@ function Auth() {
         <p className="mt-4 font-mono text-xs uppercase tracking-widest text-signal">
           Student, 10th grade
         </p>
-        <div className="mt-12 w-64 text-blueprint">
-          <BoxGlyph />
+
+        <div className="mt-10 max-w-sm rounded-2xl border-2 border-primary-foreground/25 bg-background/95 p-5 text-ink">
+          <SolidBox className="text-ink" />
+          <div className="mt-4 grid gap-2 font-mono text-[0.8rem]">
+            <div className="flex items-center justify-between">
+              <span className="text-signal-foreground">
+                <span className="rounded bg-signal px-1.5 py-0.5">face</span>
+              </span>
+              <M>{"\\sqrt{a^{2}+b^{2}}=5"}</M>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-neon-foreground">
+                <span className="rounded bg-neon px-1.5 py-0.5">space</span>
+              </span>
+              <M>{"\\sqrt{a^{2}+b^{2}+c^{2}}=\\sqrt{34}"}</M>
+            </div>
+          </div>
         </div>
       </div>
+
     </div>
   );
 }

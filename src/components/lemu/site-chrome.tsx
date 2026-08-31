@@ -1,6 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { LemuLinkButton } from "./button";
+import { ThemeToggle } from "./theme-toggle";
 import logo from "@/assets/lemu-logo.jpg.asset.json";
+
 
 export function Logo({ className = "" }: { className?: string }) {
   return (
@@ -38,6 +40,7 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="flex items-center gap-2">
+          <ThemeToggle />
           <Link
             to="/auth"
             className="hidden rounded-md px-3 py-2 font-display text-sm font-medium text-ink/80 hover:text-ink sm:inline-flex"
@@ -48,6 +51,7 @@ export function SiteHeader() {
             Start learning
           </LemuLinkButton>
         </div>
+
       </div>
     </header>
   );

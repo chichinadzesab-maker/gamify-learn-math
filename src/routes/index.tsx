@@ -2,6 +2,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { LemuLinkButton } from "@/components/lemu/button";
 import { SiteFooter, SiteHeader } from "@/components/lemu/site-chrome";
 import { TopicCard } from "@/components/lemu/topic-card";
+import { KnowBoard, FormulaCard, M } from "@/components/lemu/math";
+import { SolidBox } from "@/components/lemu/solid-box";
+import logoVideo from "@/assets/lemu-logo.mp4.asset.json";
 import {
   AxiomGlyph,
   BoxGlyph,
@@ -9,6 +12,7 @@ import {
   GameGlyph,
   PyramidGlyph,
 } from "@/components/lemu/glyphs";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -36,9 +40,13 @@ function Hero() {
       <div className="grid-paper pointer-events-none absolute inset-0" />
       <div className="relative mx-auto grid max-w-6xl gap-12 px-5 py-20 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:py-28">
         <div>
-          <span className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-chalk px-3 py-1 font-mono text-[0.7rem] uppercase tracking-widest shadow-ink-sm">
-            Geometry · Algebra · Puzzles
-          </span>
+          <div className="flex items-center gap-3">
+            <LogoReel />
+            <span className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-chalk px-3 py-1 font-mono text-[0.7rem] uppercase tracking-widest shadow-ink-sm">
+              Geometry · Algebra · Puzzles
+            </span>
+          </div>
+
           <h1 className="mt-6 text-5xl leading-[0.95] font-bold sm:text-6xl lg:text-7xl">
             Maths you can
             <br />
@@ -107,35 +115,49 @@ function HeroFigure() {
         </span>
       </div>
 
-      <div className="relative grid h-64 place-items-center overflow-hidden">
+      <div className="relative overflow-hidden py-2">
         <div className="grid-paper pointer-events-none absolute inset-0" />
-        <div className="relative w-56 animate-[float_6s_ease-in-out_infinite]">
-          <BoxGlyph className="text-blueprint" />
-        </div>
+        <SolidBox className="relative text-ink" />
       </div>
 
-      <div className="mt-3 space-y-2 rounded-lg border border-border bg-chalk p-4">
-        <p className="font-mono text-[0.7rem] uppercase tracking-widest text-muted-foreground">
-          What you know
-        </p>
-        <ul className="space-y-1.5 font-mono text-sm">
-          <li className="flex justify-between">
-            <span>edge a</span>
-            <span className="text-blueprint">4 cm</span>
-          </li>
-          <li className="flex justify-between">
-            <span>diagonal d</span>
-            <span className="text-blueprint">√(a² + b² + c²)</span>
-          </li>
-          <li className="flex justify-between text-muted-foreground">
-            <span>angle to base</span>
-            <span>?</span>
-          </li>
-        </ul>
-      </div>
+      <KnowBoard
+        className="mt-3"
+        rows={[
+          { label: "a", tex: "a", value: "4\\,\\text{cm}" },
+          { label: "b", tex: "b", value: "3\\,\\text{cm}" },
+          {
+            label: "face diagonal",
+            tex: "d_{\\text{face}} = \\sqrt{a^{2}+b^{2}}",
+            value: "5\\,\\text{cm}",
+            state: "derived",
+          },
+          {
+            label: "space diagonal",
+            tex: "d = \\sqrt{a^{2}+b^{2}+c^{2}}",
+            state: "unknown",
+          },
+        ]}
+      />
     </div>
   );
 }
+
+function LogoReel() {
+  return (
+    <span className="grid size-14 shrink-0 place-items-center overflow-hidden rounded-xl border-2 border-ink bg-chalk shadow-ink-sm">
+      <video
+        src={logoVideo.url}
+        autoPlay
+        muted
+        loop
+        playsInline
+        aria-hidden
+        className="size-full scale-[1.02] object-cover"
+      />
+    </span>
+  );
+}
+
 
 const steps = [
   {
@@ -162,6 +184,10 @@ function Steps() {
         <h2 className="max-w-lg text-3xl font-bold sm:text-4xl">
           Every topic runs the same three beats
         </h2>
+        <p className="mt-4 max-w-lg text-muted-foreground">
+          And the maths is set properly — <M>{"\\sqrt{a^{2}+b^{2}+c^{2}}"}</M> is a formula, not
+          a line of code.
+        </p>
         <div className="mt-12 grid gap-5 md:grid-cols-3">
           {steps.map((s) => (
             <div
@@ -176,6 +202,24 @@ function Steps() {
             </div>
           ))}
         </div>
+        <div className="mt-8 grid gap-5 sm:grid-cols-3">
+          <FormulaCard
+            label="Space diagonal"
+            tex="d=\sqrt{a^{2}+b^{2}+c^{2}}"
+            note="The box, unfolded into one line."
+          />
+          <FormulaCard
+            label="Pyramid volume"
+            tex="V=\tfrac{1}{3}S_{\text{base}}h"
+            note="Why a third? The explainer pours it."
+          />
+          <FormulaCard
+            label="Law of cosines"
+            tex="c^{2}=a^{2}+b^{2}-2ab\cos\gamma"
+            note="Pythagoras with the angle turned on."
+          />
+        </div>
+
       </div>
     </section>
   );
@@ -234,7 +278,7 @@ function Featured() {
 
 function GameBand() {
   return (
-    <section className="border-b-2 border-ink/90 bg-ink text-primary-foreground">
+    <section className="border-b-2 border-ink/90 bg-slab text-slab-foreground">
       <div className="mx-auto grid max-w-6xl gap-8 px-5 py-16 md:grid-cols-[1.2fr_1fr] md:items-center">
         <div>
           <span className="font-mono text-xs uppercase tracking-widest text-signal">

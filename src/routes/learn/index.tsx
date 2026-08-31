@@ -87,7 +87,7 @@ function Learn() {
               </p>
             </article>
 
-            <article className="rounded-2xl border-2 border-ink bg-ink p-6 text-primary-foreground shadow-ink">
+            <article className="rounded-2xl border-2 border-ink bg-slab p-6 text-slab-foreground shadow-ink">
               <div className="flex items-start justify-between gap-4">
                 <h2 className="text-2xl font-bold">Lemu&apos;s Math Quest</h2>
                 <span className="rounded-full border-2 border-signal px-2.5 py-0.5 font-mono text-[0.65rem] uppercase tracking-wider text-signal">
