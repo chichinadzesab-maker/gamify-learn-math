@@ -4,7 +4,7 @@ import { Logo } from "@/components/lemu/site-chrome";
 import { LemuButton } from "@/components/lemu/button";
 import { SolidBox } from "@/components/lemu/solid-box";
 import { M } from "@/components/lemu/math";
-import { ThemeToggle } from "@/components/lemu/theme-toggle";
+
 import { cn } from "@/lib/utils";
 
 
@@ -51,10 +51,7 @@ function Auth() {
 
       <div className="relative flex items-center justify-center px-5 py-16">
         <div className="w-full max-w-sm">
-          <div className="flex items-center justify-between">
-            <Logo />
-            <ThemeToggle />
-          </div>
+          <Logo />
 
           <h1 className="mt-8 text-3xl font-bold">
             {mode === "login" ? "Welcome back" : "Make an account"}
@@ -113,13 +110,13 @@ function Auth() {
               <span className="text-signal-foreground">
                 <span className="rounded bg-signal px-1.5 py-0.5">face</span>
               </span>
-              <M>{"\\sqrt{a^{2}+b^{2}}=5"}</M>
+              <M hand>{"\\sqrt{a^{2}+b^{2}}=5"}</M>
             </div>
             <div className="flex items-center justify-between">
               <span className="text-neon-foreground">
                 <span className="rounded bg-neon px-1.5 py-0.5">space</span>
               </span>
-              <M>{"\\sqrt{a^{2}+b^{2}+c^{2}}=\\sqrt{34}"}</M>
+              <M hand>{"\\sqrt{a^{2}+b^{2}+c^{2}}=\\sqrt{34}"}</M>
             </div>
           </div>
         </div>

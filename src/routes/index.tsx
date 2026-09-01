@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { LemuLinkButton } from "@/components/lemu/button";
 import { SiteFooter, SiteHeader } from "@/components/lemu/site-chrome";
 import { TopicCard } from "@/components/lemu/topic-card";
-import { KnowBoard, FormulaCard, M } from "@/components/lemu/math";
+import { M } from "@/components/lemu/math";
 import { SolidBox } from "@/components/lemu/solid-box";
 import logoVideo from "@/assets/lemu-logo.mp4.asset.json";
 import {
@@ -120,24 +120,9 @@ function HeroFigure() {
         <SolidBox className="relative text-ink" />
       </div>
 
-      <KnowBoard
-        className="mt-3"
-        rows={[
-          { label: "a", tex: "a", value: "4\\,\\text{cm}" },
-          { label: "b", tex: "b", value: "3\\,\\text{cm}" },
-          {
-            label: "face diagonal",
-            tex: "d_{\\text{face}} = \\sqrt{a^{2}+b^{2}}",
-            value: "5\\,\\text{cm}",
-            state: "derived",
-          },
-          {
-            label: "space diagonal",
-            tex: "d = \\sqrt{a^{2}+b^{2}+c^{2}}",
-            state: "unknown",
-          },
-        ]}
-      />
+      <p className="mt-3 border-t border-border pt-3 text-center font-hand text-xl text-ink">
+        <M hand>{"d=\\sqrt{a^{2}+b^{2}+c^{2}}"}</M>
+      </p>
     </div>
   );
 }
@@ -185,7 +170,7 @@ function Steps() {
           Every topic runs the same three beats
         </h2>
         <p className="mt-4 max-w-lg text-muted-foreground">
-          And the maths is set properly — <M>{"\\sqrt{a^{2}+b^{2}+c^{2}}"}</M> is a formula, not
+          And the maths is set properly — <M hand>{"\\sqrt{a^{2}+b^{2}+c^{2}}"}</M> is a formula, not
           a line of code.
         </p>
         <div className="mt-12 grid gap-5 md:grid-cols-3">
@@ -201,23 +186,6 @@ function Steps() {
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.text}</p>
             </div>
           ))}
-        </div>
-        <div className="mt-8 grid gap-5 sm:grid-cols-3">
-          <FormulaCard
-            label="Space diagonal"
-            tex="d=\sqrt{a^{2}+b^{2}+c^{2}}"
-            note="The box, unfolded into one line."
-          />
-          <FormulaCard
-            label="Pyramid volume"
-            tex="V=\tfrac{1}{3}S_{\text{base}}h"
-            note="Why a third? The explainer pours it."
-          />
-          <FormulaCard
-            label="Law of cosines"
-            tex="c^{2}=a^{2}+b^{2}-2ab\cos\gamma"
-            note="Pythagoras with the angle turned on."
-          />
         </div>
 
       </div>

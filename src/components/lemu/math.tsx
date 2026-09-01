@@ -6,10 +6,13 @@ import { cn } from "@/lib/utils";
 export function M({
   children,
   display = false,
+  hand = false,
   className,
 }: {
   children: string;
   display?: boolean;
+  /** Chalk-and-pen look: the formula as if written on the page by hand. */
+  hand?: boolean;
   className?: string;
 }) {
   const html = useMemo(
@@ -25,7 +28,11 @@ export function M({
 
   return (
     <span
-      className={cn(display ? "block text-center" : "inline-block align-middle", className)}
+      className={cn(
+        display ? "block text-center" : "inline-block align-middle",
+        hand && "math-hand",
+        className,
+      )}
       // KaTeX output is generated from our own literals, never user input.
       dangerouslySetInnerHTML={{ __html: html }}
     />
@@ -87,7 +94,7 @@ export function KnowBoard({
                     state === "unknown" ? "text-muted-foreground" : "text-ink",
                   )}
                 >
-                  {r.tex ? <M>{r.tex}</M> : r.label}
+                  {r.tex ? <M hand className="text-[1.15em]">{r.tex}</M> : r.label}
                 </span>
               </span>
               <span
@@ -98,7 +105,7 @@ export function KnowBoard({
                   state === "unknown" && "text-muted-foreground",
                 )}
               >
-                {r.value ? <M>{r.value}</M> : "?"}
+                {r.value ? <M hand className="text-[1.15em]">{r.value}</M> : "?"}
               </span>
             </li>
           );
@@ -123,18 +130,21 @@ export function FormulaCard({
   return (
     <div
       className={cn(
-        "relative rounded-xl border-2 border-ink bg-card px-5 py-5 shadow-ink-sm",
+        "relative rounded-xl border-2 border-ink bg-chalk px-4 pb-5 pt-7 shadow-ink-sm",
         className,
       )}
     >
+      <span className="ruled-note pointer-events-none absolute inset-2 rounded-md" />
       <span className="absolute -top-2.5 left-4 rounded border-2 border-ink bg-signal px-1.5 font-mono text-[0.6rem] uppercase tracking-[0.18em] text-signal-foreground">
         {label}
       </span>
-      <M display className="text-lg text-ink">
+      <M display hand className="relative overflow-x-auto px-1 text-[1.35rem] text-blueprint">
         {tex}
       </M>
       {note && (
-        <p className="mt-3 text-center text-xs text-muted-foreground">{note}</p>
+        <p className="relative mt-3 text-center font-hand text-base text-muted-foreground">
+          {note}
+        </p>
       )}
     </div>
   );
