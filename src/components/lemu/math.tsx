@@ -6,10 +6,13 @@ import { cn } from "@/lib/utils";
 export function M({
   children,
   display = false,
+  hand = false,
   className,
 }: {
   children: string;
   display?: boolean;
+  /** Chalk-and-pen look: the formula as if written on the page by hand. */
+  hand?: boolean;
   className?: string;
 }) {
   const html = useMemo(
