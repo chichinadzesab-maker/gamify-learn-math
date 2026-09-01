@@ -130,18 +130,22 @@ export function FormulaCard({
   return (
     <div
       className={cn(
-        "relative rounded-xl border-2 border-ink bg-card px-5 py-5 shadow-ink-sm",
+        "relative overflow-hidden rounded-xl border-2 border-ink bg-chalk px-5 pb-5 pt-7 shadow-ink-sm",
         className,
       )}
     >
+      <span className="ruled-note pointer-events-none absolute inset-0" />
+      <span className="pointer-events-none absolute inset-y-0 left-7 w-px bg-destructive/25" />
       <span className="absolute -top-2.5 left-4 rounded border-2 border-ink bg-signal px-1.5 font-mono text-[0.6rem] uppercase tracking-[0.18em] text-signal-foreground">
         {label}
       </span>
-      <M display className="text-lg text-ink">
+      <M display hand className="relative text-[1.6rem] text-blueprint">
         {tex}
       </M>
       {note && (
-        <p className="mt-3 text-center text-xs text-muted-foreground">{note}</p>
+        <p className="relative mt-3 text-center font-hand text-base text-muted-foreground">
+          {note}
+        </p>
       )}
     </div>
   );
