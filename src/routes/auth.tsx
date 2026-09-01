@@ -110,13 +110,13 @@ function Auth() {
               <span className="text-signal-foreground">
                 <span className="rounded bg-signal px-1.5 py-0.5">face</span>
               </span>
-              <M>{"\\sqrt{a^{2}+b^{2}}=5"}</M>
+              <M hand>{"\\sqrt{a^{2}+b^{2}}=5"}</M>
             </div>
             <div className="flex items-center justify-between">
               <span className="text-neon-foreground">
                 <span className="rounded bg-neon px-1.5 py-0.5">space</span>
               </span>
-              <M>{"\\sqrt{a^{2}+b^{2}+c^{2}}=\\sqrt{34}"}</M>
+              <M hand>{"\\sqrt{a^{2}+b^{2}+c^{2}}=\\sqrt{34}"}</M>
             </div>
           </div>
         </div>
