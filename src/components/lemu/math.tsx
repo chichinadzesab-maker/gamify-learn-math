@@ -28,7 +28,11 @@ export function M({
 
   return (
     <span
-      className={cn(display ? "block text-center" : "inline-block align-middle", className)}
+      className={cn(
+        display ? "block text-center" : "inline-block align-middle",
+        hand && "math-hand",
+        className,
+      )}
       // KaTeX output is generated from our own literals, never user input.
       dangerouslySetInnerHTML={{ __html: html }}
     />
@@ -90,7 +94,7 @@ export function KnowBoard({
                     state === "unknown" ? "text-muted-foreground" : "text-ink",
                   )}
                 >
-                  {r.tex ? <M>{r.tex}</M> : r.label}
+                  {r.tex ? <M hand className="text-[1.15em]">{r.tex}</M> : r.label}
                 </span>
               </span>
               <span
@@ -101,7 +105,7 @@ export function KnowBoard({
                   state === "unknown" && "text-muted-foreground",
                 )}
               >
-                {r.value ? <M>{r.value}</M> : "?"}
+                {r.value ? <M hand className="text-[1.15em]">{r.value}</M> : "?"}
               </span>
             </li>
           );
