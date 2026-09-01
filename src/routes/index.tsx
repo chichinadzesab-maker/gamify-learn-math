@@ -170,7 +170,7 @@ function Steps() {
           Every topic runs the same three beats
         </h2>
         <p className="mt-4 max-w-lg text-muted-foreground">
-          And the maths is set properly — <M>{"\\sqrt{a^{2}+b^{2}+c^{2}}"}</M> is a formula, not
+          And the maths is set properly — <M hand>{"\\sqrt{a^{2}+b^{2}+c^{2}}"}</M> is a formula, not
           a line of code.
         </p>
         <div className="mt-12 grid gap-5 md:grid-cols-3">
