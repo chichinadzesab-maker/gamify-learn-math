@@ -217,3 +217,52 @@
 .katex .sqrt > .root {
   color: inherit;
 }
+
+/* Ruled-paper backdrop for formula notes */
+@utility ruled-note {
+  background-image: linear-gradient(
+    to bottom,
+    transparent 0 27px,
+    color-mix(in oklab, var(--color-blueprint) 16%, transparent) 27px 28px
+  );
+  background-size: 100% 28px;
+}
+
+/* --- Handwritten maths ------------------------------------------
+   KaTeX keeps the layout (fractions, radicals, exponents); the glyphs
+   are written in ink by hand. */
+.math-hand .katex,
+.math-hand .katex .mathnormal,
+.math-hand .katex .mathit,
+.math-hand .katex .mathrm,
+.math-hand .katex .mathdefault,
+.math-hand .katex .mathbf,
+.math-hand .katex .textrm,
+.math-hand .katex .mord,
+.math-hand .katex .mbin,
+.math-hand .katex .mrel,
+.math-hand .katex .mopen,
+.math-hand .katex .mclose,
+.math-hand .katex .mpunct,
+.math-hand .katex .mop {
+  font-family: var(--font-hand);
+  font-weight: 600;
+}
+.math-hand .katex {
+  font-size: 1.28em;
+  letter-spacing: 0.01em;
+}
+/* keep radicals / rules looking like pen strokes, not hairlines */
+.math-hand .katex .sqrt > .sqrt-sign,
+.math-hand .katex .sqrt .hide-tail {
+  transform: skewX(-2deg);
+}
+.math-hand .katex .frac-line,
+.math-hand .katex .overline .overline-line,
+.math-hand .katex .underline .underline-line {
+  border-bottom-width: 0.055em;
+  border-radius: 2px;
+}
+.math-hand .katex .sqrt .hide-tail > svg {
+  stroke-linecap: round;
+}
