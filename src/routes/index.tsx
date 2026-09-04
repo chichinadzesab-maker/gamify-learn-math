@@ -1,17 +1,8 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { LemuLinkButton } from "@/components/lemu/button";
 import { SiteFooter, SiteHeader } from "@/components/lemu/site-chrome";
-import { TopicCard } from "@/components/lemu/topic-card";
-import { M } from "@/components/lemu/math";
-import { SolidBox } from "@/components/lemu/solid-box";
+import { LemurBuild } from "@/components/lemu/lemur-build";
 import logoVideo from "@/assets/lemu-logo.mp4.asset.json";
-import {
-  AxiomGlyph,
-  BoxGlyph,
-  FunctionGlyph,
-  GameGlyph,
-  PyramidGlyph,
-} from "@/components/lemu/glyphs";
 
 
 export const Route = createFileRoute("/")({
@@ -75,12 +66,9 @@ function Hero() {
             <LemuLinkButton to="/learn" size="lg">
               Open the topics
             </LemuLinkButton>
-            <Link
-              to="/learn/geometry"
-              className="font-display text-sm font-medium underline decoration-2 underline-offset-4 hover:text-blueprint"
-            >
-              See a geometry topic →
-            </Link>
+            <LemuLinkButton to="/auth" size="lg" variant="paper">
+              Save my progress
+            </LemuLinkButton>
           </div>
           <dl className="mt-12 flex gap-8 border-t-2 border-ink/15 pt-6 font-mono text-sm">
             {[
@@ -107,7 +95,7 @@ function HeroFigure() {
     <div className="relative rounded-2xl border-2 border-ink bg-card p-5 shadow-ink">
       <div className="flex items-center justify-between border-b border-border pb-3">
         <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-          Explainer · The Box
+          Build · Lemu
         </span>
         <span className="flex gap-1.5">
           <span className="size-2.5 rounded-full border border-ink bg-signal" />
@@ -117,12 +105,8 @@ function HeroFigure() {
 
       <div className="relative overflow-hidden py-2">
         <div className="grid-paper pointer-events-none absolute inset-0" />
-        <SolidBox className="relative text-ink" />
+        <LemurBuild className="relative text-ink" />
       </div>
-
-      <p className="mt-3 border-t border-border pt-3 text-center font-hand text-xl text-ink">
-        <M hand>{"d=\\sqrt{a^{2}+b^{2}+c^{2}}"}</M>
-      </p>
     </div>
   );
 }
@@ -170,8 +154,8 @@ function Steps() {
           Every topic runs the same three beats
         </h2>
         <p className="mt-4 max-w-lg text-muted-foreground">
-          And the maths is set properly — <M hand>{"\\sqrt{a^{2}+b^{2}+c^{2}}"}</M> is a formula, not
-          a line of code.
+          Explainer, problems, puzzle — same rhythm on every topic, so you always know what
+          comes next.
         </p>
         <div className="mt-12 grid gap-5 md:grid-cols-3">
           {steps.map((s) => (
@@ -193,101 +177,6 @@ function Steps() {
   );
 }
 
-function Featured() {
-  return (
-    <section className="border-b-2 border-ink/90">
-      <div className="mx-auto max-w-6xl px-5 py-20">
-        <div className="flex flex-wrap items-end justify-between gap-4">
-          <h2 className="text-3xl font-bold sm:text-4xl">Start somewhere</h2>
-          <Link
-            to="/learn"
-            className="font-display text-sm underline decoration-2 underline-offset-4 hover:text-blueprint"
-          >
-            All subjects →
-          </Link>
-        </div>
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          <TopicCard
-            index="GEO · 01"
-            title="Axioms"
-            blurb="The rules of space, shown as objects you can move."
-            status="live"
-            to="/learn/geometry"
-            glyph={<AxiomGlyph />}
-          />
-          <TopicCard
-            index="GEO · 02"
-            title="The Box"
-            blurb="Edges, diagonals and sections of a rectangular solid."
-            status="live"
-            to="/learn/geometry"
-            glyph={<BoxGlyph />}
-          />
-          <TopicCard
-            index="GEO · 03"
-            title="The Pyramid"
-            blurb="Apexes, slant heights and the cuts that reveal them."
-            status="live"
-            to="/learn/geometry"
-            glyph={<PyramidGlyph />}
-          />
-          <TopicCard
-            index="ALG · 01"
-            title="Functions"
-            blurb="Drag the inputs, watch the curve answer back."
-            status="soon"
-            glyph={<FunctionGlyph />}
-          />
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function GameBand() {
-  return (
-    <section className="border-b-2 border-ink/90 bg-slab text-slab-foreground">
-      <div className="mx-auto grid max-w-6xl gap-8 px-5 py-16 md:grid-cols-[1.2fr_1fr] md:items-center">
-        <div>
-          <span className="font-mono text-xs uppercase tracking-widest text-signal">
-            Gamification
-          </span>
-          <h2 className="mt-4 text-3xl font-bold sm:text-4xl">Lemu&apos;s Math Quest</h2>
-          <p className="mt-3 max-w-md text-primary-foreground/70">
-            Streaks, XP and boss puzzles. The same maths, wrapped in a reason to come back
-            tomorrow.
-          </p>
-          <div className="mt-7 flex flex-wrap gap-3">
-            <LemuLinkButton to="/learn" variant="signal">
-              Play the quest
-            </LemuLinkButton>
-            <LemuLinkButton to="/auth" variant="paper">
-              Track my progress
-            </LemuLinkButton>
-          </div>
-        </div>
-        <div className="rounded-xl border-2 border-signal bg-background p-5 text-ink">
-          <div className="flex items-center justify-between font-mono text-xs uppercase tracking-widest text-muted-foreground">
-            <span>Week streak</span>
-            <span>4 / 7</span>
-          </div>
-          <div className="mt-3 flex gap-1.5">
-            {[1, 1, 1, 1, 0, 0, 0].map((on, i) => (
-              <span
-                key={i}
-                className={`h-8 flex-1 rounded border-2 border-ink ${on ? "bg-signal" : "bg-secondary"}`}
-              />
-            ))}
-          </div>
-          <div className="mt-5 grid h-20 place-items-center rounded-lg border border-border bg-chalk">
-            <GameGlyph />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function Home() {
   return (
     <div className="min-h-screen">
@@ -295,8 +184,6 @@ function Home() {
       <main>
         <Hero />
         <Steps />
-        <Featured />
-        <GameBand />
       </main>
       <SiteFooter />
     </div>
