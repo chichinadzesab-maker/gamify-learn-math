@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { LemuLinkButton } from "@/components/lemu/button";
 import { SiteFooter, SiteHeader } from "@/components/lemu/site-chrome";
 import { LemurBuild } from "@/components/lemu/lemur-build";
